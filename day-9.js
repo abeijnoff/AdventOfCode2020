@@ -1030,15 +1030,11 @@ const runProgram = (values, preambleCount) => {
   let position = preambleCount;
   while (position < values.length) {
     const value = values[position];
-
-    // console.log('va', value)
     let noMatch = true;
     for(let i = position-preambleCount; i < position; i++) {
       const first = parseInt(values[i]);
-      // console.log('f', first)
       for(let j = i+1; j < position; j++) {
         const second = parseInt(values[j]);
-        // console.log(first, second, first + second, value)
         if((first + second) == value) {
           noMatch = false;
         }
@@ -1052,8 +1048,6 @@ const runProgram = (values, preambleCount) => {
 }
 
 runProgram(values1, 25);
-// runProgram(values2, 5);
-
 
 
 console.log(number)
@@ -1063,7 +1057,6 @@ for(let startIndex = 0; startIndex < values1.indexOf(number); startIndex++) {
 
   const obj = values1.slice(startIndex).reduce((acc, value) => {
     const sum = acc.values.reduce((acc, v) => parseInt(acc) + parseInt(v), 0)
-    // console.log('sum', sum, number)
     if(sum == number) {
       acc.found = true;
       return acc;
@@ -1075,15 +1068,12 @@ for(let startIndex = 0; startIndex < values1.indexOf(number); startIndex++) {
     values: [],
     found: false
   })
-  // console.log(obj)
 
   if(obj.found) {
     valueArray = obj.values;
   }
 
 }
-
-// console.log('a', valueArray)
 
 const minValue = valueArray.reduce((acc, val) => {
   if(!acc || parseInt(val) < parseInt(acc)) {
